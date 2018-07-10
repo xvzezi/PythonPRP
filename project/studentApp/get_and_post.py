@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 from models import DataModel
+
 def add(list1):#向数据库中增添数据
     for person in list1:
         student = DataModel(student_ID = person.student_ID,
@@ -22,6 +23,7 @@ def add(list1):#向数据库中增添数据
                             others = person.others)
         student.save()
     return
+    
 def show():#从数据库中向外展示数据
     list2 = DataModel.objects.all()
     return list2

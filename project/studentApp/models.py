@@ -6,7 +6,7 @@ from django.db import models
 class DataModel(models.Model):
     student_ID = models.CharField(max_length = 12)
     name = models.CharField(max_length = 30)
-    dapartment = models.CharField(max_length = 20)
+    department = models.CharField(max_length = 20)
     major = models.CharField(max_length = 20)
     grade = models.IntegerField()
     graduate_time = models.CharField(max_length = 10)
