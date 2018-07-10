@@ -1,12 +1,15 @@
 #-*- coding:utf-8 -*-
+import sys
+sys.path.append('/tool/spider')
+from spider import *
 
-def main(request_from_manager):#request_from_manager是从manager.py接受到的命令
+def data_deal(request_from_manager):#request_from_manager是从manager.py接受到的命令
     list1=[]#最终返回给model类一个存放各个data实例的列表
     list2=[]#从model类返回给manager的列表
     if():
         list1 = get_data_from_page(request_from_manager)
         save_data(list1)
-        return []
+        return True
     else():
         list2 = get_data_from_model(request_from_manager)
         return list2

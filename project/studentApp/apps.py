@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class PrpModelConfig(AppConfig):
-    name = 'prp_model'
+class StudentappConfig(AppConfig):
+    name = 'studentApp'
