@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block css %}
+<style type="text/css">
+    table.hovertable 
+    {
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+    }
+    table.hovertable th 
+    {
+        background-color:#c3dde0;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #a9c6c9;
+    }
+    table.hovertable tr 
+    {
+        background-color:#d4e3e5;
+    }
+    table.hovertable td 
+    {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #a9c6c9;
+    }
+</style>
+{% endblock %}
+
+{% block showResults %}
+
+<div role="tabpanel" class="tab-pane" id="results">
+    <div class="check-div form-inline" align="center">
+        <button class="btn btn-yellow btn-sm" type="button" id="show">显示</button>
+        <button class="btn btn-yellow btn-sm" type="button" id="download">下载</button>
+        <button class="btn btn-yellow btn-sm" type="button" id="update">更新</button>
+        <p id="warning" style="color:red;font-size:15px;">{{ warning }}</p>
+    </div>
+                        
+    <table class="hovertable" align="center">
+        <tr>
+        <th>序号</th><th>学号</th><th>姓名</th><th>院系</th><th>专业</th><th>年级</th><th>毕业时间</th>
+        <th>学籍状态</th><th>不及格门数</th><th>目前修读核心课程学分</th><th>暂未修读课程</th>
+        <th>修读完某一方向</th><th>再修读其他方向{{x}}门</th><th>人文、社科、自然、计算机、体育、两课、英语</th>
+        <th>软件工程职业素养，SE112</th><th>软件产品设计与用户体验，SE418</th>
+        <th>企业软件质量保证，SE419</th><th>软件知识产权保护，SE420</th><th>企业软件过程与管理，SE422</th>
+        <th>计算机系统基础（1）（上），SE114</th><th>程序设计课程设计，SE113</th><th>程序设计与数据结构，SE232</th>
+        </tr>
+        
+        
+        {% for student in data %}
+            <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+            <td>{{ student.student_ID }}</td>
+            <td>{{ student.department }}</td>
+            <td>{{ student.major }}</td>
+            <td>{{ student.grade }}</td>
+            <td>{{ student.graduate_time }}</td>
+            <td>{{ student.student_status }}</td>
+            <td>{{ student.failed_number }}</td>
+            <td>{{ student.center_credits }}</td>
+            <td>{{ student.courses_must_to_take }}</td>
+            <td>{{ student.one_direction }}</td>
+            <td>{{ student.another_direction }}</td>
+            <td>{{ student.general_courses }}</td>
+            <td>{{ student.others.SE112 }}</td>
+            <td>{{ student.others.SE418 }}</td>
+            <td>{{ student.others.SE419 }}</td>
+            <td>{{ student.others.SE420 }}</td>
+            <td>{{ student.others.SE422 }}</td>
+            <td>{{ student.others.SE114 }}</td>
+            <td>{{ student.others.SE113 }}</td>
+            <td>{{ student.others.SE232 }}</td>
+            </tr>
+        {% endfor %}
+
+        
+    </table>
+
+</div>
+{% endblock %}
+
+{% block settings %}
+<div role="tabpanel" class="tab-pane" id="settings" style="padding-top: 50px;">
+    <div class="data-div">
+        <div class="tablebody col-lg-10 col-lg-offset-1">
+        </div>
+    </div>
+</div>
+{% endblock %}

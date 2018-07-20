@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ch">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="上海交通大学毕业生资格审核网站">
+        <meta name="keywords" content="上海交通大学 毕业资格审核">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+
+        <title>上海交通大学毕业生资格审核网</title>
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <script src="static/js/func.js"></script>
+
+        {% block css %} {% endblock %}
+
+        <!--[if lt IE 9]>
+        <script src="static/js/html5shiv.min.js"></script>
+        <script src="static/js/respond.min.js"></script>
+        <![endif]-->
+
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="static/css/common.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/slide.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/flat-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/jquery.nouislider.css">
+    </head>
+
+    <body>
+
+        <div id="wrap">
+            <!-- 左侧菜单栏目块 -->
+            <div class="leftMeun" id="leftMeun" style="width:200px; height:100%;">
+
+                <div id="logoDiv">
+                    <p id="logoP"><img class="img-fluid" src="static/images/jdlogo.png" width="96%"></p>
+                </div>
+
+                <div id="personInfor">
+                    <p style="font-size:15px;">
+                        <a href="login"><i>JAccount统一身份登录</i></a>
+                    </p>
+                </div>
+
+                <div class="meun-item" href="#settings" aria-conteols="settings" role="tab" data-toggle="tab"><img src="static/images/icon_rule_grey.png">条件配置</div>
+
+                <div class="meun-item" href="#results" aria-conteols="results" role="tab" data-toggle="tab"><img src="static/images/icon_card_grey.png">审核结果</div>
+            </div>
+
+            <!-- 右侧具体内容栏目 -->
+            <div id="rightContent">
+                <a class="toggle-btn" id="mini">
+                    <i class="glyphicon glyphicon-align-justify"></i>
+                </a>
+
+                <!-- Tab panes -->
+                <div class="tab-content" style="width:1090px; height:100%;">
+                    <!-- 审核结果显示模块 -->
+                    {% block showResults %} {% endblock %}
+
+                    <!--审核条件配置模块-->
+                    {% block settings %} {% endblock %}
+
+                </div>
+
+        <script src="static/js/jquery.nouislider.js"></script>
+    </body>
+
+</html>

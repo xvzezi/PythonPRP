@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from studentApp import views
+from controller import login,manager
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.homepage)
+    url(r'^index$', views.index),
+    url(r'^login$', login.login),
+    url(r'^download$', manager.download_model),
 ]
