@@ -3,16 +3,6 @@ from data_deal import *
 from download import *
 from django.shortcuts import render
 from django.http import StreamingHttpResponse
-#与view的接口需要等登录完善之后补全
-
-def get_model(request_from_view):#接受来自view的命令，开始向数据库中增加数据
-    if data_deal(request_from_view):
-        return 1#获取成功
-    else:
-        return 0#获取失败
-
-def return_model(request_from_view):#接受来自view的命令，从数据库中提取数据交给view
-    return data_deal(request_from_view)
 
 def download_model(request):#接受来自view的命令，从数据库中提取数据进行下载
     number = 22
