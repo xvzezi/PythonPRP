@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 from spider import *
-from studentApp import get_and_post
+from Student import get_and_post
+from download import *
 
 def data_deal(list1):#list1是从spider.py接受到的原始数据
     list2 = []
@@ -31,9 +32,10 @@ def data_deal(list1):#list1是从spider.py接受到的原始数据
             list2.append(student)
 
     get_and_post.add(list2)#储存数据
+    download(list2)
     return list2
 
 
 def get_data_from_model():#从model获取数据
     tmp = get_and_post.show()
-    return list2
+    return tmp

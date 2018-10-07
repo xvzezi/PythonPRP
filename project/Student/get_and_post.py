@@ -2,6 +2,7 @@
 from models import DataModel
 
 def add(list1):#向数据库中增添数据
+    DataModel.objects.all().delete()
     for person in list1:
         student = DataModel(student_ID = person.student_ID,
                             name = person.name,

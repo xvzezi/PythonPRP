@@ -55,7 +55,7 @@ class data2(data1):#返回给manager的数据实例
                     if 'F' in i[2]:
                         tmp[j] = '未通过'
                         break
-                    if int(i[2]) >= 60:
+                    if int(float(i[2])) >= 60:
                         tmp[j] = '通过'
                     else:
                         tmp[j] = '未通过'
@@ -69,6 +69,7 @@ def data_deal(list_origin):
         
         data_dealing = data.find(attrs={"id":"lbXm"})#姓名
         name = data_dealing.string
+        name = ''.join([name]).encode('utf-8')
         
         data_dealing = data.find(attrs={"id":"lbYx"})#学院
         department = data_dealing.string
@@ -302,3 +303,9 @@ def get_data(driver, user, password, icode):
 
     return data_list
 
+def get_soup_data():
+    with open('GradList2013.aspx','r') as foo_file :
+        soup_data = BeautifulSoup(foo_file, "html.parser")
+    data_list = [soup_data]
+    data_list = data_deal(data_list)
+    return data_list

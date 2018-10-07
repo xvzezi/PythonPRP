@@ -52,10 +52,18 @@
         <th>计算机系统基础（1）（上），SE114</th><th>程序设计课程设计，SE113</th><th>程序设计与数据结构，SE232</th>
         </tr>
         
-        
+        <script type="text/javascript">
+            no = 1;
+        </script>
         {% for student in data %}
-            <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+        <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+            <script type="text/javascript">
+                var str = "<td>" + no + "</td>";
+                document.write(str);
+                no = no + 1;
+            </script>
             <td>{{ student.student_ID }}</td>
+            <td>{{ student.name }}</td>
             <td>{{ student.department }}</td>
             <td>{{ student.major }}</td>
             <td>{{ student.grade }}</td>
@@ -75,7 +83,7 @@
             <td>{{ student.others.SE114 }}</td>
             <td>{{ student.others.SE113 }}</td>
             <td>{{ student.others.SE232 }}</td>
-            </tr>
+        </tr>
         {% endfor %}
 
         

@@ -5,10 +5,6 @@ from django.shortcuts import render
 from django.http import StreamingHttpResponse
 
 def download_model(request):#接受来自view的命令，从数据库中提取数据进行下载
-    number = 22
-    list_download = get_data_from_model()
-    list_download = [len(list_download)]+list_download
-    download(list_download,number)
     def file_iterator(file_name, chunk_size=512):#用于形成二进制数据
         with open(file_name,'rb') as f:
             while True:
